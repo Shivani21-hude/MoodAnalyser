@@ -11,15 +11,15 @@ namespace MoodAnalyser
         string input;
         public string Analyze(string input)
         {
-            if (input.ToLower().Contains("sad"))
+            if (input.ToLower().Contains("happy"))
             {
-                Console.WriteLine("Sad");
-                return "Sad";
+                Console.WriteLine("Happy");
+                return "Happy";
             }
             else
             {
-                Console.WriteLine("Happy");
-                return "happy";
+                Console.WriteLine("Sad");
+                return "Sad";
             }
 
         }

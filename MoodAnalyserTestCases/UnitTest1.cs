@@ -9,8 +9,8 @@ namespace MoodAnalyserTestCases
         public void TestMethod1()
         {
             MoodAnalyzer analyse = new MoodAnalyzer();
-            string actualResult = analyse.Analyze("Sad");
-            Assert.AreEqual("Sad", actualResult);
+            string actualResult = analyse.Analyze("Happy");
+            Assert.AreEqual("Happy", actualResult);
         }
     }
 }
