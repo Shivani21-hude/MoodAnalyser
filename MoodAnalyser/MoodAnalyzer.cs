@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyser
 {
-    internal class MoodAnalyzer
+    public class MoodAnalyzer
     {
         string input;
-        public MoodAnalyzer(string input)
+        public string Analyze(string input)
         {
-            this.input = input;
-        }
-        public string Analyze()
-        {
-            if (this.input.Contains("Sad"))
+            if (input.ToLower().Contains("sad"))
             {
-                return "Sad Mood";
+                Console.WriteLine("Sad");
+                return "Sad";
             }
             else
             {
-                return "happy Mood";
+                Console.WriteLine("Happy");
+                return "happy";
             }
+
         }
     }
 }
