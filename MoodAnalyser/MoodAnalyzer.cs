@@ -8,18 +8,22 @@ namespace MoodAnalyser
 {
     public class MoodAnalyzer
     {
-        string input;
-        public string Analyze(string input)
+        string message;
+        public  MoodAnalyzer(string message)
         {
-            if (input.ToLower().Contains("happy"))
+            this.message = message;
+        }
+        public string Analyze()
+        {
+            if (message.ToLower().Contains("happy"))
             {
-                Console.WriteLine("Happy");
-                return "Happy";
+               
+                return "HAPPY";
             }
             else
             {
-                Console.WriteLine("Sad");
-                return "Sad";
+               
+                return "SAD";
             }
 
         }

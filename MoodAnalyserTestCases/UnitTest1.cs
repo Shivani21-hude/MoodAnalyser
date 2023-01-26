@@ -5,12 +5,21 @@ namespace MoodAnalyserTestCases
     [TestClass]
     public class UnitTest1
     {
+        MoodAnalyzer analyse = new MoodAnalyzer("I am in any mood");
         [TestMethod]
-        public void TestMethod1()
+        public void ReturnSadMood()
         {
-            MoodAnalyzer analyse = new MoodAnalyzer();
-            string actualResult = analyse.Analyze("Happy");
-            Assert.AreEqual("Happy", actualResult);
+            
+            string expected = "SAD";
+            string actualResult = analyse.Analyze();
+            Assert.AreEqual(expected, actualResult);
+        }
+        [TestMethod]
+        public void ReturnHappyMood()
+        {
+            string expected = "HAPPY";
+            string actualResult = analyse.Analyze();
+            Assert.AreEqual(expected, actualResult);
         }
     }
 }

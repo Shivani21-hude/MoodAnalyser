@@ -3,8 +3,8 @@
 using MoodAnalyser;
 Console.WriteLine("  ****  Mood Analyzer  ****");
 
-Console.WriteLine("Sad or Happy");
-string input = Console.ReadLine();
-MoodAnalyzer analyse = new MoodAnalyzer();
+Console.WriteLine("Sad or Happy mood");
+string input = "I am in SAD Mood";
+MoodAnalyzer analyse = new MoodAnalyzer(input);
 
-analyse.Analyze(input);
+Console.WriteLine("I am in {0} mood",analyse.Analyze());
