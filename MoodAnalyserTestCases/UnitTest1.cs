@@ -69,5 +69,45 @@ namespace MoodAnalyserTestCases
                 Assert.AreEqual("Mood should not be Empty", exception.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            string message = null;
+            object expected = new MoodAnalyzer(message);
+            //object expected1 = expected;
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyzer", "MoodAnalyser");
+            expected.Equals(obj);
+            Assert.AreEqual(expected, obj);
+
+        }
+
+        [TestMethod] //Catch the exception as no such class
+        public void GivenClassNameWhenImproper_ShouldThrow_NoSuchClass_Expection()
+        {
+            string excepted = "No such Class";
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyzer", "MoodAnalyser");
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual(excepted, exception.Message);
+            }
+        }
+
+        [TestMethod] //Catch the exception as no such class
+        public void GivenClassNameWhenImproper_ShouldThrow_NoSochMethod_Expection()
+        {
+            string excepted = "No such Method";
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyzer", "MoodAnalyser");
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Assert.AreEqual(excepted, exception.Message);
+            }
+        }
     }
 }
