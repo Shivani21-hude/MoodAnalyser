@@ -7,7 +7,7 @@ namespace MoodAnalyserTestCases
     {
         MoodAnalyzer analyse = new MoodAnalyzer("I am in any mood");
 
-        [TestMethod]  // message pass as "I am in Sad mood " then should return SAD
+        [TestMethod]  // message pass as "I am in Sad mood " then should return SAD  //Tc1.1
 
         public void ReturnSadMood()
         {
@@ -16,7 +16,7 @@ namespace MoodAnalyserTestCases
             Assert.AreEqual(expected, actualResult);
         }
 
-        [TestMethod] // message pass as "I am in Sad mood " then should return HAPPY
+        [TestMethod] // message pass as "I am in Sad mood " then should return HAPPY //Tc1.2
 
         public void ReturnHappyMood()
         {
@@ -26,7 +26,7 @@ namespace MoodAnalyserTestCases
         }
 
         [TestMethod]  //message pass as "null " then should return HAPPY
-
+        //TC 2
 
         public void GivenNullMood_ShouldReturnHappyMood()
         {
@@ -41,6 +41,7 @@ namespace MoodAnalyserTestCases
         }
 
         [TestMethod] //Pass null using try catch
+        //TC 3.1
         public void GivenNull_MoodAnalyzer_Should_Throw_CustomException()
         {
             try
@@ -56,6 +57,7 @@ namespace MoodAnalyserTestCases
 
         }
         [TestMethod]//Pass the empty message 
+        //TC 3.2
         public void GivenEmptyMood_WhenAnalyzer_ShouldThrowCustomException()
         {
             try
@@ -70,7 +72,7 @@ namespace MoodAnalyserTestCases
             }
         }
 
-        [TestMethod]
+        [TestMethod] //TC 4.1
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
             string message = null;
@@ -83,6 +85,7 @@ namespace MoodAnalyserTestCases
         }
 
         [TestMethod] //Catch the exception as no such class
+        //TC 4.2
         public void GivenClassNameWhenImproper_ShouldThrow_NoSuchClass_Expection()
         {
             string excepted = "No such Class";
@@ -97,6 +100,7 @@ namespace MoodAnalyserTestCases
         }
 
         [TestMethod] //Catch the exception as no such class
+        //Tc 4.3
         public void GivenClassNameWhenImproper_ShouldThrow_NoSochMethod_Expection()
         {
             string excepted = "No such Method";
@@ -110,12 +114,20 @@ namespace MoodAnalyserTestCases
             }
         }
 
-        [TestMethod]
+        [TestMethod] //TC 5
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
             object expected = new MoodAnalyzer("HAPPY");
             object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyzer", "MoodAnalyzer", "SAD");
             expected.Equals(obj);
+        }
+
+        [TestMethod]
+        public void GivenHappyMoodShouldReturnHappy()
+        {
+            string expected = "HAPPY";
+            string actual = MoodAnalyserFactory.InvokedAnalyseMood("HAPPY", "AnalyzeMood");
+            Assert.AreEqual(expected, actual);
         }
     }
 }
